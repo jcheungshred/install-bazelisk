@@ -1,0 +1,16 @@
+name: 'Bazelisk Builder'
+author: 'Johnson Cheung'
+description: 'Use Bazelik to build and test'
+inputs:
+  args:
+    description: 'builder action'
+    required: true
+    default: ''
+outputs:
+  time:
+    description: "greetings"
+
+runs:
+  using: 'node12'
+  main: 'index.js'
+
