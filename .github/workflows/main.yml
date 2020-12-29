@@ -1,13 +1,12 @@
 name: test
+
 on: push
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: jcheungshred/install-bazelisk
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: check bazelisk
         run: bazelisk --version
 
