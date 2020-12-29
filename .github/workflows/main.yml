@@ -9,7 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: jcheungshred/install-bazelisk
+      - uses: jcheungshred/install-bazelisk@v1.0.0
       - name: check bazelisk
         run: bazelisk --version
 
