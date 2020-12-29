@@ -15,14 +15,14 @@ const run = async () => {
           core.getInput('bazel-install-path', { required : true });
         const os =
           core.getInput('os', { required : true });*/
-        await exec.exec('npm install -g bazelisk');
-        //const bazeliskPath =
-        //await tc.downloadTool(`https://github.com/bazelbuild/bazelisk/releases/download/v${version}/bazelisk-${os}-amd64`);
+        //await exec.exec('npm install -g bazelisk');
+        const bazeliskPath = await tc.downloadTool(`https://github.com/bazelbuild/bazelisk/releases/download/v${version}/bazelisk-${os}-amd64`);
+        const bazelBinPath = "/usr/local/bin"
         core.debug('Successfully downloaded binary to bazeliskPath');
-        //await io.mkdirP(bazelBinPath);
-        //await io.mv(bazeliskPath, `${bazelBinPath}/bazel`);
-        //await exec.exec('chmod', ['+x', `${bazelBinPath}/bazel`]);
-        //await core.addPath(`${bazelBinPath}`);
+        await io.mkdirP(bazelBinPath);
+        await io.mv(bazeliskPath, `${bazelBinPath}/bazel`);
+        await exec.exec('chmod', ['+x', `${bazelBinPath}/bazel`]);
+        await core.addPath(`${bazelBinPath}`);
     } catch(error) {
         core.setFailed(error.message)
     }
