@@ -53,7 +53,7 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
           core.getInput('os', { required : true });*/
         //await exec.exec('npm install -g bazelisk');
         const bazeliskPath = yield tc.downloadTool(`https://github.com/bazelbuild/bazelisk/releases/download/v${version}/bazelisk-${os}-amd64`);
-        const bazelBinPath = "/usr/local/bin";
+        const bazelBinPath = "bin";
         core.debug('Successfully downloaded binary to bazeliskPath');
         yield io.mkdirP(bazelBinPath);
         yield io.mv(bazeliskPath, `${bazelBinPath}/bazel`);

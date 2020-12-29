@@ -17,7 +17,7 @@ const run = async () => {
           core.getInput('os', { required : true });*/
         //await exec.exec('npm install -g bazelisk');
         const bazeliskPath = await tc.downloadTool(`https://github.com/bazelbuild/bazelisk/releases/download/v${version}/bazelisk-${os}-amd64`);
-        const bazelBinPath = "/usr/local/bin"
+        const bazelBinPath = "bin"
         core.debug('Successfully downloaded binary to bazeliskPath');
         await io.mkdirP(bazelBinPath);
         await io.mv(bazeliskPath, `${bazelBinPath}/bazel`);
