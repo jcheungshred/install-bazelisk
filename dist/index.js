@@ -43,9 +43,12 @@ const os = "linux";
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         core.debug('Begin Bazelisk Action');
-        const version = core.getInput('version', { required: true });
-        const bazelBinPath = core.getInput('bazel-install-path', { required: true });
-        const os = core.getInput('os', { required: true });
+        /*const version =
+          core.getInput('version', { required : true });
+        const bazelBinPath =
+          core.getInput('bazel-install-path', { required : true });
+        const os =
+          core.getInput('os', { required : true });*/
         yield exec.exec('npm install -g bazelisk');
         //const bazeliskPath =
         //await tc.downloadTool(`https://github.com/bazelbuild/bazelisk/releases/download/v${version}/bazelisk-${os}-amd64`);
@@ -54,7 +57,6 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         //await io.mv(bazeliskPath, `${bazelBinPath}/bazel`);
         //await exec.exec('chmod', ['+x', `${bazelBinPath}/bazel`]);
         //await core.addPath(`${bazelBinPath}`);
-        core.debug(`Added ${bazelBinPath}/bazel to PATH`);
     }
     catch (error) {
         core.setFailed(error.message);

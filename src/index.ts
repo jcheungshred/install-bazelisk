@@ -9,12 +9,12 @@ const os = "linux"
 const run = async () => {
     try {
         core.debug('Begin Bazelisk Action');
-        const version =
+        /*const version =
           core.getInput('version', { required : true });
         const bazelBinPath =
           core.getInput('bazel-install-path', { required : true });
         const os =
-          core.getInput('os', { required : true });
+          core.getInput('os', { required : true });*/
         await exec.exec('npm install -g bazelisk');
         //const bazeliskPath =
         //await tc.downloadTool(`https://github.com/bazelbuild/bazelisk/releases/download/v${version}/bazelisk-${os}-amd64`);
@@ -23,7 +23,6 @@ const run = async () => {
         //await io.mv(bazeliskPath, `${bazelBinPath}/bazel`);
         //await exec.exec('chmod', ['+x', `${bazelBinPath}/bazel`]);
         //await core.addPath(`${bazelBinPath}`);
-        core.debug(`Added ${bazelBinPath}/bazel to PATH`);         
     } catch(error) {
         core.setFailed(error.message)
     }
