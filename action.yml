@@ -4,7 +4,7 @@ description: 'Use Bazelik to build and test'
 inputs:
   args:
     description: 'builder action'
-    required: true
+    required: false 
     default: ''
 outputs:
   time:
